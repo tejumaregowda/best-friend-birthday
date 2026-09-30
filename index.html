@@ -3,9 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>For My Best Friend ❤️</title>
 
 <style>
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -26,7 +28,7 @@ section {
     justify-content: center;
     flex-direction: column;
     text-align: center;
-    padding: 30px 20px;
+    padding: 35px 20px;
     position: relative;
 }
 
@@ -47,8 +49,10 @@ h2 {
 p {
     font-size: 18px;
     line-height: 1.7;
-    max-width: 500px;
+    max-width: 520px;
 }
+
+/* BUTTON */
 
 button {
     margin-top: 30px;
@@ -66,7 +70,8 @@ button:hover {
     transform: scale(1.05);
 }
 
-/* Floating hearts */
+/* FLOATING HEARTS */
+
 .heart {
     position: absolute;
     font-size: 25px;
@@ -75,20 +80,24 @@ button:hover {
 }
 
 @keyframes float {
+
     0% {
         transform: translateY(20px);
         opacity: 0;
     }
+
     50% {
         opacity: 0.8;
     }
+
     100% {
         transform: translateY(-100px);
         opacity: 0;
     }
 }
 
-/* Opening */
+/* OPENING */
+
 #opening {
     background: linear-gradient(135deg, #fff4ee, #f8e1df);
 }
@@ -98,7 +107,8 @@ button:hover {
     margin-top: 10px;
 }
 
-/* Cake */
+/* CAKE */
+
 .cake {
     font-size: 110px;
     margin: 20px;
@@ -114,28 +124,31 @@ button:hover {
     opacity: 0.4;
 }
 
-/* Memories */
+/* MEMORIES */
+
+#memories {
+    background: #fbf0ea;
+}
+
 .memory-container {
     width: 100%;
-    max-width: 450px;
+    max-width: 420px;
 }
 
 .memory-card {
     background: white;
-    padding: 20px;
-    border-radius: 20px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-    margin-top: 20px;
+    padding: 15px;
+    border-radius: 18px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.10);
+    margin-top: 25px;
 }
 
-.memory-placeholder {
-    height: 280px;
-    background: #ead8d4;
-    border-radius: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 50px;
+.memory-photo {
+    width: 100%;
+    height: 380px;
+    object-fit: cover;
+    border-radius: 12px;
+    display: block;
 }
 
 .memory-text {
@@ -143,21 +156,69 @@ button:hover {
     font-size: 17px;
 }
 
-/* Letter */
-.letter {
-    background: #fff;
-    max-width: 520px;
-    padding: 35px;
-    border-radius: 12px;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.1);
-    line-height: 1.8;
+/* DOTS */
+
+.dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 15px;
 }
 
-/* Gift */
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #d5b4b4;
+}
+
+.dot.active {
+    background: #9b4d5c;
+}
+
+/* MESSAGE */
+
+#message {
+    background: linear-gradient(135deg, #fff8f3, #f5e4df);
+}
+
+.letter {
+    background: #fffdf9;
+    max-width: 520px;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.10);
+    line-height: 1.8;
+    text-align: left;
+}
+
+.letter p {
+    font-size: 17px;
+}
+
+/* FUNNY */
+
+#funny {
+    background: #f8ebe5;
+}
+
+.funny-text {
+    font-size: 24px;
+    max-width: 500px;
+    line-height: 1.6;
+}
+
+/* GIFT */
+
+#gift {
+    background: linear-gradient(135deg, #fff5ee, #f6ded9);
+}
+
 .gift {
     font-size: 120px;
     cursor: pointer;
     transition: 0.4s;
+    margin-top: 25px;
 }
 
 .gift:hover {
@@ -168,13 +229,40 @@ button:hover {
     display: none;
 }
 
-.earring {
-    font-size: 100px;
-    margin: 20px;
+/* EARRING */
+
+.earring-box {
+    margin-top: 25px;
+    animation: reveal 1s ease;
 }
 
-/* Mobile */
+.earring {
+    font-size: 100px;
+    margin-bottom: 15px;
+}
+
+.gold {
+    color: #d4a72c;
+    font-size: 28px;
+}
+
+@keyframes reveal {
+
+    from {
+        opacity: 0;
+        transform: scale(0.7);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* MOBILE */
+
 @media (max-width: 600px) {
+
     h1 {
         font-size: 34px;
     }
@@ -186,21 +274,38 @@ button:hover {
     p {
         font-size: 17px;
     }
+
+    .memory-photo {
+        height: 330px;
+    }
+
+    .letter {
+        padding: 25px;
+    }
+
 }
+
 </style>
 </head>
 
+
 <body>
 
+
 <!-- OPENING -->
+
 <section id="opening" class="active">
 
     <div class="heart" style="left:15%; top:25%;">♡</div>
     <div class="heart" style="right:15%; top:40%;">♡</div>
 
-    <p class="small">A little something made specially for you...</p>
+    <p class="small">
+        A little something made specially for you...
+    </p>
 
-    <h1>Hey Birthday Boy 👀</h1>
+    <h1>
+        Hey Birthday Boy 👀
+    </h1>
 
     <p>
         I made something for you.<br>
@@ -215,9 +320,12 @@ button:hover {
 
 
 <!-- BIRTHDAY -->
+
 <section id="birthday">
 
-    <h1>Happy Birthday! 🎉</h1>
+    <h1>
+        Happy Birthday! 🎉
+    </h1>
 
     <p>
         To my best friend,<br>
@@ -233,137 +341,237 @@ button:hover {
 
 
 <!-- CAKE -->
+
 <section id="cake">
 
-    <h2>Before anything else...</h2>
+    <h2>
+        Before anything else...
+    </h2>
 
-    <p>Make a wish. 🎂</p>
+    <p>
+        Make a wish. 🎂
+    </p>
 
-    <div class="cake">🎂</div>
-
-    <div id="candle" class="candle" onclick="blowCandle()">
-        🕯️
+    <div class="cake">
+        🎂
     </div>
 
-    <p id="candleText">Tap the candle to blow it out ✨</p>
+    <div id="candle"
+         class="candle"
+         onclick="blowCandle()">
 
-    <button id="cakeNext" class="hidden"
+        🕯️
+
+    </div>
+
+    <p id="candleText">
+        Tap the candle to blow it out ✨
+    </p>
+
+    <button id="cakeNext"
+            class="hidden"
             onclick="nextSection('memories')">
-        Continue →
+
+        Now look at this 📸
+
     </button>
 
 </section>
 
 
 <!-- MEMORIES -->
+
 <section id="memories">
 
-    <h2>Our Little Memories 📸</h2>
+    <h2>
+        Some of Our Memories 📸
+    </h2>
 
     <p>
-        A tiny collection of moments
-        that became some of my favourite memories.
+        A few moments that I'm really glad I have.
     </p>
+
 
     <div class="memory-container">
 
         <div class="memory-card">
 
-            <div class="memory-placeholder">
-                📷
-            </div>
+            <img id="memoryImage"
+                 class="memory-photo"
+                 src="photo1.jpg"
+                 alt="Our memory">
 
-            <div class="memory-text">
+            <div id="memoryText"
+                 class="memory-text">
+
                 One of those moments I'll always remember. ❤️
+
             </div>
 
         </div>
 
     </div>
 
-    <button onclick="nextSection('message')">
+
+    <div class="dots">
+
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+
+    </div>
+
+
+    <button onclick="nextMemory()">
+
+        Next memory →
+
+    </button>
+
+
+    <button id="memoryNext"
+            class="hidden"
+            onclick="nextSection('message')">
+
         One more thing 💌
+
     </button>
 
 </section>
 
 
 <!-- MESSAGE -->
+
 <section id="message">
 
-    <h2>A Birthday Message For You 💌</h2>
+    <h2>
+        Just So You Know ❤️
+    </h2>
 
     <div class="letter">
 
         <p>
-            Happy Birthday, idiot. ❤️
+            I don't always say it, but I'm really glad
+            you're my friend.
         </p>
 
         <br>
 
         <p>
-            I don't always say it, but I'm genuinely
-            grateful to have you as my best friend.
+            We've had so many random conversations,
+            stupid moments, laughs and memories.
+            Some are worth remembering and some are
+            probably better left forgotten. 😂
         </p>
 
         <br>
 
         <p>
-            Thank you for all the laughs, random conversations,
-            stupid moments and memories we've made.
-        </p>
-
-        <br>
-
-        <p>
-            I hope this year brings you everything
-            you've been wishing for.
-        </p>
-
-        <br>
-
-        <p>
-            Stay exactly the way you are.
-            And remember... you're stuck with me. 😂❤️
+            But honestly, I wouldn't change any of it.
+            I hope no matter how much life changes,
+            we never become those friends who need
+            a reason to talk.
         </p>
 
     </div>
 
+
+    <button onclick="nextSection('funny')">
+
+        Okay, enough emotions 😂
+
+    </button>
+
+</section>
+
+
+<!-- FUNNY -->
+
+<section id="funny">
+
+    <h2>
+        One Important Thing...
+    </h2>
+
+    <p class="funny-text">
+
+        You're another year older now...
+
+        <br><br>
+
+        So hopefully this is finally the year
+        you become wiser.
+
+        <br>
+
+        <b>At least for your age. 😂</b>
+
+    </p>
+
+
     <button onclick="nextSection('gift')">
-        One last thing... 🎁
+
+        Okay... your actual surprise 👀
+
     </button>
 
 </section>
 
 
 <!-- GIFT -->
+
 <section id="gift">
 
-    <h2>Okay...</h2>
+    <h2>
+        Okay... 👀
+    </h2>
 
-    <p>There's one last surprise.</p>
+    <p>
+        Remember that one thing you keep saying
+        you want?
+    </p>
 
-    <p>Tap the gift. 👀</p>
+    <p>
+        Tap the gift.
+    </p>
 
-    <div class="gift" onclick="openGift()">
+
+    <div class="gift"
+         onclick="openGift()">
+
         🎁
+
     </div>
 
-    <div id="giftReveal" class="hidden">
 
-        <div class="earring">✨💎✨</div>
+    <div id="giftReveal"
+         class="hidden earring-box">
 
-        <h2>You wanted this... 👀</h2>
+        <div class="earring">
+            💛✨
+        </div>
+
+        <h2>
+            I actually remembered. 👀
+        </h2>
 
         <p>
-            You mentioned it once.<br>
-            I remembered. ❤️
+            You kept saying you wanted
+            <br>
+            <b>one earring for your ear.</b>
+        </p>
+
+        <br>
+
+        <p class="gold">
+            So... this one's for you. 💛
         </p>
 
         <br>
 
         <p>
-            Happy Birthday, bestie. 🫶
+            Happy Birthday, idiot. ❤️
         </p>
 
     </div>
@@ -371,40 +579,137 @@ button:hover {
 </section>
 
 
+
 <script>
+
+
+/* CHANGE SECTION */
 
 function nextSection(id) {
 
     document.querySelectorAll("section").forEach(section => {
+
         section.classList.remove("active");
+
     });
+
 
     document.getElementById(id).classList.add("active");
 
+
     window.scrollTo({
+
         top: 0,
+
         behavior: "smooth"
+
     });
+
 }
 
 
+/* BLOW CANDLE */
+
 function blowCandle() {
 
-    const candle = document.getElementById("candle");
+    const candle =
+        document.getElementById("candle");
+
 
     candle.innerHTML = "💨";
+
     candle.classList.add("off");
+
 
     document.getElementById("candleText").innerHTML =
         "Wish made. ✨";
 
-    document.getElementById("cakeNext").classList.remove("hidden");
+
+    document.getElementById("cakeNext")
+        .classList.remove("hidden");
+
 }
 
 
+/* MEMORIES */
+
+let memoryIndex = 0;
+
+
+const memories = [
+
+    {
+        image: "photo1.jpg",
+        text: "One of those moments I'll always remember. ❤️"
+    },
+
+    {
+        image: "photo2.jpg",
+        text: "Somehow we always end up making memories. 😂"
+    },
+
+    {
+        image: "photo3.jpg",
+        text: "Still one of my favourite memories with you."
+    },
+
+    {
+        image: "photo4.jpg",
+        text: "We've really come a long way. ❤️"
+    }
+
+];
+
+
+function nextMemory() {
+
+    memoryIndex++;
+
+
+    if (memoryIndex >= memories.length) {
+
+        document.getElementById("memoryNext")
+            .classList.remove("hidden");
+
+        return;
+
+    }
+
+
+    document.getElementById("memoryImage").src =
+        memories[memoryIndex].image;
+
+
+    document.getElementById("memoryText").innerHTML =
+        memories[memoryIndex].text;
+
+
+    const dots =
+        document.querySelectorAll(".dot");
+
+
+    dots.forEach(dot =>
+        dot.classList.remove("active")
+    );
+
+
+    if (dots[memoryIndex]) {
+
+        dots[memoryIndex]
+            .classList.add("active");
+
+    }
+
+}
+
+
+/* GIFT */
+
 function openGift() {
 
-    document.querySelector(".gift").style.display = "none";
+    document.querySelector(".gift")
+        .style.display = "none";
+
 
     document.getElementById("giftReveal")
         .classList.remove("hidden");
@@ -412,6 +717,7 @@ function openGift() {
 }
 
 </script>
+
 
 </body>
 </html>
