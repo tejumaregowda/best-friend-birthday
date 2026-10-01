@@ -535,6 +535,21 @@ button{
 
     font-style:italic;
 }
+   
+.birthdayStart{
+   margin-top:28px;
+   animation:softPulse 2.4s ease-in-out infinite;
+}
+
+@keyframes softPulse{
+    0%,100%{
+        opacity:.65;
+    }
+
+    50%{
+        opacity:1;
+    }
+}
 
 .birthdayGlow{
     position:absolute;
@@ -2267,6 +2282,11 @@ button{
         <p class="birthdayTiny">
             I made you something ✨
         </p>
+       <button
+          class="tap birthdayStart"
+          onclick="beginBirthday()">
+          Tap to begin <span>→</span>
+       </button>
 
     </div>
 
@@ -2611,8 +2631,8 @@ button{
 
         <p>
 
-            did you think that was
-            everything, did you? 👀
+            Did you think that was
+            everything? 👀
 
         </p>
 
@@ -2668,7 +2688,7 @@ button{
         <div class="eyebrow">
           <b>How could I forget...?</b>
            <br> 
-           I remember everything, that many tyms you've blabbered that in my ear.
+            you've blabbered about it in my ear so many times.
         </div>
 
         <h2 class="revealTitle">
@@ -2737,9 +2757,7 @@ let giftOpened=false;
    HAPPY BIRTHDAY MUSIC
 ========================================================= */
 
-const birthdayMusic =
-    document.getElementById("birthdayMusic");
-
+const birthdayMusic = document.getElementById("birthdayMusic");
 
 async function startBirthdayMusic(){
 
@@ -2781,6 +2799,18 @@ birthdayMusic.addEventListener(
 
     }
 );
+   
+   function beginBirthday(){
+    const birthdayStart = document.querySelector(".birthdayStart");
+
+    if(birthdayStart){
+        birthdayStart.disabled = true;
+        birthdayStart.style.opacity = "0";
+        birthdayStart.style.pointerEvents = "none";
+    }
+
+    startBirthdayMusic();
+}
 
    
 /* =========================================================
