@@ -2777,20 +2777,10 @@ async function startBirthdayMusic(){
 
     catch(error){
 
-        /*
-           If the browser blocks audio,
-           the page still continues normally.
-        */
+        goTo("birthday");
 
     }
 }
-
-
-/*
-   When the short birthday music ends,
-   automatically move to the candle page.
-*/
-
 birthdayMusic.addEventListener(
     "ended",
     ()=>{
