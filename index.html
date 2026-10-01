@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">hgkjhlkjnkl
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
@@ -1489,6 +1489,36 @@ button{
     font-style:italic;
 }
 
+.startAgain{
+    margin-top:38px;
+
+    background:transparent;
+
+    border:1px solid rgba(226,195,164,.35);
+
+    color:#cdb19b;
+
+    padding:11px 22px;
+
+    border-radius:30px;
+
+    font-size:10px;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.startAgain:hover{
+    background:rgba(255,235,210,.08);
+    border-color:rgba(226,195,164,.6);
+    transform:translateY(-2px);
+}
+
 
 /* =========================================================
    MOBILE ADJUSTMENTS
@@ -1910,8 +1940,8 @@ button{
 
         <p>
 
-            did you thought that was
-            everything, did you?
+            did you think that was
+            everything, did you? 👀
 
         </p>
 
@@ -1965,42 +1995,39 @@ button{
     <div class="content">
 
         <div class="eyebrow">
-          how can i forget...? 
-          I remember everything that many tyms you've blabbered in my ear.
+          <b>How could I forget...?</b>
+           <br> 
+          I remember everything, that many tyms you've blabbered that in my ear.
         </div>
 
         <h2 class="revealTitle">
-            You kept saying
-            you wanted one.
+          You kept saying
+           <br>
+           <b>you wanted one.</b>
         </h2>
 
-        <div class="divider"></div>
+<div class="divider"></div>
 
-        <p class="revealText">
+<p class="revealText">
+    So...
+    <br><br>
+    <i><b>go get that piercing. 😂</b></i>
+</p>
 
-            i'm giving that to you.
+       <p class="revealGold">
+          <i>Wait...</i>
+          <br><br>
+          <b>Why are you still looking at the screen? 👀</b>
+       </p>
 
-            <br>
-
-            So...
-
-            <br>
-
-            <i>go get that piercing 😂</i>
-
-        </p>
-
-        <p class="revealGold">
-
-            This one's for you 🤍
-
-        </p>
-
-        <p class="signature">
-
-            Happy Birthday, My boy ❤️
-
-        </p>
+<p class="signature">
+    <b>Look at my hand...🤭</b>
+</p>
+       <button
+          class="startAgain"
+          onclick="startAgain()">
+          ↻ Start Again
+       </button>
 
     </div>
 
@@ -2320,6 +2347,7 @@ function showMemory(index){
         String(index+1).padStart(2,"0");
 
 }
+   
 
 
 /* =========================================================
@@ -2353,7 +2381,12 @@ function openGift(){
     },2200);
 
 }
+   function startAgain(){
 
+    location.reload();
+
+}
+   
 </script>
 
 </body>
