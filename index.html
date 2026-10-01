@@ -1,576 +1,900 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>For My Best Friend ❤️</title>
+<title>For My Favourite Person 🤎</title>
 
 <style>
 
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-body {
-    font-family: Georgia, serif;
-    background: #fff8f3;
-    color: #4b3030;
-    overflow-x: hidden;
+html{
+    scroll-behavior:smooth;
 }
 
-section {
-    min-height: 100vh;
-    display: none;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    text-align: center;
-    padding: 35px 20px;
-    position: relative;
+body{
+    background:#201614;
+    color:#f5e9dc;
+    font-family:Georgia, "Times New Roman", serif;
+    overflow:hidden;
 }
 
-section.active {
-    display: flex;
+/* -------------------- COMMON -------------------- */
+
+.page{
+    position:absolute;
+    inset:0;
+    min-height:100vh;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:35px 22px;
+    overflow-y:auto;
 }
 
-h1 {
-    font-size: 42px;
-    margin-bottom: 20px;
+.page.active{
+    display:flex;
+    animation:fadeIn 1s ease;
 }
 
-h2 {
-    font-size: 30px;
-    margin-bottom: 18px;
-}
-
-p {
-    font-size: 18px;
-    line-height: 1.7;
-    max-width: 520px;
-}
-
-/* BUTTON */
-
-button {
-    margin-top: 30px;
-    padding: 14px 30px;
-    border: none;
-    border-radius: 30px;
-    background: #9b4d5c;
-    color: white;
-    font-size: 17px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-button:hover {
-    transform: scale(1.05);
-}
-
-/* FLOATING HEARTS */
-
-.heart {
-    position: absolute;
-    font-size: 25px;
-    animation: float 5s infinite ease-in-out;
-    opacity: 0.6;
-}
-
-@keyframes float {
-
-    0% {
-        transform: translateY(20px);
-        opacity: 0;
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(15px);
     }
-
-    50% {
-        opacity: 0.8;
-    }
-
-    100% {
-        transform: translateY(-100px);
-        opacity: 0;
+    to{
+        opacity:1;
+        transform:translateY(0);
     }
 }
 
-/* OPENING */
-
-#opening {
-    background: linear-gradient(135deg, #fff4ee, #f8e1df);
+.content{
+    width:100%;
+    max-width:600px;
 }
 
-.small {
-    font-size: 16px;
-    margin-top: 10px;
+.eyebrow{
+    font-size:12px;
+    letter-spacing:4px;
+    text-transform:uppercase;
+    color:#c9a98c;
+    margin-bottom:25px;
 }
 
-/* CAKE */
-
-.cake {
-    font-size: 110px;
-    margin: 20px;
+h1{
+    font-size:48px;
+    font-weight:normal;
+    line-height:1.15;
+    margin-bottom:25px;
 }
 
-.candle {
-    font-size: 55px;
-    cursor: pointer;
-    transition: 0.3s;
+h2{
+    font-size:34px;
+    font-weight:normal;
+    line-height:1.25;
+    margin-bottom:20px;
 }
 
-.candle.off {
-    opacity: 0.4;
+p{
+    font-size:17px;
+    line-height:1.8;
+    color:#dfcec0;
 }
 
-/* MEMORIES */
-
-#memories {
-    background: #fbf0ea;
+.small{
+    font-size:14px;
+    color:#bda696;
+    letter-spacing:1px;
 }
 
-.memory-container {
-    width: 100%;
-    max-width: 420px;
+button{
+    margin-top:32px;
+    padding:13px 28px;
+    background:transparent;
+    border:1px solid #a98268;
+    color:#f5e9dc;
+    border-radius:2px;
+    font-family:Georgia,serif;
+    font-size:15px;
+    letter-spacing:1px;
+    cursor:pointer;
+    transition:.3s;
 }
 
-.memory-card {
-    background: white;
-    padding: 15px;
-    border-radius: 18px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.10);
-    margin-top: 25px;
+button:hover{
+    background:#a98268;
+    color:#201614;
 }
 
-.memory-photo {
-    width: 100%;
-    height: 380px;
-    object-fit: cover;
-    border-radius: 12px;
-    display: block;
+.line{
+    width:60px;
+    height:1px;
+    background:#a98268;
+    margin:25px auto;
 }
 
-.memory-text {
-    margin-top: 15px;
-    font-size: 17px;
+/* -------------------- OPENING -------------------- */
+
+#opening{
+    background:
+    radial-gradient(circle at center,#46352c 0%,#201614 65%);
 }
 
-/* DOTS */
-
-.dots {
-    display: flex;
-    justify-content: center;
-    gap: 8px;
-    margin-top: 15px;
+.opening-title{
+    font-size:52px;
 }
 
-.dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: #d5b4b4;
+.opening-heart{
+    font-size:28px;
+    color:#c9a98c;
+    margin-bottom:20px;
 }
 
-.dot.active {
-    background: #9b4d5c;
+/* -------------------- BIRTHDAY -------------------- */
+
+#birthday{
+    background:#251a17;
 }
 
-/* MESSAGE */
-
-#message {
-    background: linear-gradient(135deg, #fff8f3, #f5e4df);
+.birthday-number{
+    font-size:100px;
+    color:#a98268;
+    opacity:.3;
+    line-height:1;
 }
 
-.letter {
-    background: #fffdf9;
-    max-width: 520px;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.10);
-    line-height: 1.8;
-    text-align: left;
+/* -------------------- CANDLE -------------------- */
+
+#candlePage{
+    background:#171211;
 }
 
-.letter p {
-    font-size: 17px;
+.candle{
+    font-size:100px;
+    margin:20px 0;
+    cursor:pointer;
+    transition:.5s;
 }
 
-/* FUNNY */
-
-#funny {
-    background: #f8ebe5;
+.candle.off{
+    filter:grayscale(1);
+    opacity:.5;
 }
 
-.funny-text {
-    font-size: 24px;
-    max-width: 500px;
-    line-height: 1.6;
+.wish{
+    color:#c9a98c;
+    font-style:italic;
 }
 
-/* GIFT */
+/* -------------------- SUSPENSE -------------------- */
 
-#gift {
-    background: linear-gradient(135deg, #fff5ee, #f6ded9);
+#pause{
+    background:#120e0d;
 }
 
-.gift {
-    font-size: 120px;
-    cursor: pointer;
-    transition: 0.4s;
-    margin-top: 25px;
+.pause-text{
+    font-size:15px;
+    letter-spacing:3px;
+    color:#8f786b;
+    text-transform:uppercase;
 }
 
-.gift:hover {
-    transform: scale(1.1) rotate(-3deg);
+.pause-dot{
+    width:6px;
+    height:6px;
+    border-radius:50%;
+    background:#a98268;
+    margin:30px auto;
+    animation:pulse 1.8s infinite;
 }
 
-.hidden {
-    display: none;
-}
-
-/* EARRING */
-
-.earring-box {
-    margin-top: 25px;
-    animation: reveal 1s ease;
-}
-
-.earring {
-    font-size: 100px;
-    margin-bottom: 15px;
-}
-
-.gold {
-    color: #d4a72c;
-    font-size: 28px;
-}
-
-@keyframes reveal {
-
-    from {
-        opacity: 0;
-        transform: scale(0.7);
+@keyframes pulse{
+    0%,100%{
+        opacity:.2;
+        transform:scale(.8);
     }
-
-    to {
-        opacity: 1;
-        transform: scale(1);
+    50%{
+        opacity:1;
+        transform:scale(1.5);
     }
 }
 
-/* MOBILE */
+/* -------------------- MEMORIES -------------------- */
 
-@media (max-width: 600px) {
+#memories{
+    background:#211715;
+}
 
-    h1 {
-        font-size: 34px;
+.memory-counter{
+    font-size:12px;
+    letter-spacing:3px;
+    color:#a98268;
+    margin-bottom:15px;
+}
+
+.memory-frame{
+    width:100%;
+    max-width:430px;
+    margin:0 auto;
+    padding:10px;
+    background:#eee2d4;
+    box-shadow:0 15px 40px rgba(0,0,0,.45);
+}
+
+.memory-frame img{
+    width:100%;
+    height:500px;
+    object-fit:cover;
+    display:block;
+}
+
+.memory-caption{
+    padding:18px 10px 8px;
+    color:#3b2a23;
+    background:#eee2d4;
+    font-size:16px;
+    line-height:1.5;
+    font-style:italic;
+}
+
+.memory-buttons{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+}
+
+.memory-buttons button{
+    min-width:100px;
+}
+
+.progress{
+    display:flex;
+    justify-content:center;
+    gap:6px;
+    margin-top:20px;
+}
+
+.progress span{
+    width:5px;
+    height:5px;
+    background:#5c4a40;
+    border-radius:50%;
+}
+
+.progress span.active{
+    background:#c9a98c;
+    transform:scale(1.5);
+}
+
+/* -------------------- LETTER -------------------- */
+
+#letter{
+    background:#eee2d4;
+    color:#38271f;
+}
+
+.letter-paper{
+    width:100%;
+    max-width:560px;
+    background:#f7efe5;
+    color:#38271f;
+    padding:40px 30px;
+    box-shadow:0 15px 40px rgba(0,0,0,.35);
+    text-align:left;
+    border:1px solid #d6c2ae;
+}
+
+.letter-paper .eyebrow{
+    color:#86634e;
+}
+
+.letter-paper p{
+    color:#4b362b;
+    font-size:16px;
+    line-height:1.9;
+}
+
+.signature{
+    margin-top:25px;
+    text-align:right;
+    font-style:italic;
+    color:#86634e;
+}
+
+/* -------------------- FUNNY -------------------- */
+
+#funny{
+    background:
+    radial-gradient(circle,#3a2923,#1d1412);
+}
+
+.funny-big{
+    font-size:26px;
+    line-height:1.6;
+}
+
+.funny-small{
+    margin-top:25px;
+    color:#a98268;
+    font-style:italic;
+}
+
+/* -------------------- BEFORE GIFT -------------------- */
+
+#beforeGift{
+    background:#120e0d;
+}
+
+.question{
+    font-size:36px;
+    line-height:1.4;
+}
+
+/* -------------------- GIFT -------------------- */
+
+#gift{
+    background:
+    radial-gradient(circle at center,#453128,#1b1311 70%);
+}
+
+.gift-box{
+    position:relative;
+    width:150px;
+    height:120px;
+    margin:35px auto;
+    cursor:pointer;
+    transition:.5s;
+}
+
+.gift-box:hover{
+    transform:scale(1.05);
+}
+
+.gift-base{
+    position:absolute;
+    bottom:0;
+    width:150px;
+    height:90px;
+    background:#7d4e43;
+    border:1px solid #b58a6e;
+}
+
+.gift-lid{
+    position:absolute;
+    top:5px;
+    left:-8px;
+    width:166px;
+    height:30px;
+    background:#966454;
+    border:1px solid #c29b7d;
+}
+
+.gift-ribbon{
+    position:absolute;
+    left:62px;
+    top:0;
+    width:28px;
+    height:120px;
+    background:#c9a98c;
+}
+
+.gift-bow{
+    position:absolute;
+    top:-22px;
+    left:50px;
+    font-size:45px;
+    color:#c9a98c;
+}
+
+/* -------------------- REVEAL -------------------- */
+
+#reveal{
+    background:
+    radial-gradient(circle at center,#4b3429,#17100e 70%);
+}
+
+.reveal-text{
+    animation:reveal 1.5s ease;
+}
+
+@keyframes reveal{
+    from{
+        opacity:0;
+        transform:scale(.8);
+    }
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+}
+
+.earring{
+    font-size:90px;
+    margin:25px 0;
+}
+
+.gold{
+    color:#d4af62;
+    font-size:23px;
+}
+
+.final-line{
+    margin-top:30px;
+    font-style:italic;
+    color:#c9a98c;
+}
+
+/* -------------------- MUSIC -------------------- */
+
+.music{
+    position:fixed;
+    right:15px;
+    top:15px;
+    z-index:100;
+}
+
+.music button{
+    margin:0;
+    padding:8px 13px;
+    font-size:12px;
+    border-color:#70584b;
+}
+
+/* -------------------- MOBILE -------------------- */
+
+@media(max-width:600px){
+
+    h1{
+        font-size:40px;
     }
 
-    h2 {
-        font-size: 26px;
+    h2{
+        font-size:29px;
     }
 
-    p {
-        font-size: 17px;
+    .opening-title{
+        font-size:44px;
     }
 
-    .memory-photo {
-        height: 330px;
+    .memory-frame img{
+        height:430px;
     }
 
-    .letter {
-        padding: 25px;
+    .letter-paper{
+        padding:30px 23px;
+    }
+
+    .question{
+        font-size:30px;
     }
 
 }
 
 </style>
+
 </head>
 
 
 <body>
 
 
-<!-- OPENING -->
+<!-- MUSIC -->
 
-<section id="opening" class="active">
-
-    <div class="heart" style="left:15%; top:25%;">♡</div>
-    <div class="heart" style="right:15%; top:40%;">♡</div>
-
-    <p class="small">
-        A little something made specially for you...
-    </p>
-
-    <h1>
-        Hey Birthday Boy 👀
-    </h1>
-
-    <p>
-        I made something for you.<br>
-        And yes... you're not allowed to skip anything. 😌
-    </p>
-
-    <button onclick="nextSection('birthday')">
-        Start ❤️
+<div class="music">
+    <button onclick="toggleMusic()" id="musicButton">
+        ♫ Music
     </button>
+</div>
 
-</section>
-
-
-<!-- BIRTHDAY -->
-
-<section id="birthday">
-
-    <h1>
-        Happy Birthday! 🎉
-    </h1>
-
-    <p>
-        To my best friend,<br>
-        my favourite idiot,<br>
-        and one of the most important people in my life. ❤️
-    </p>
-
-    <button onclick="nextSection('cake')">
-        There's more 👀
-    </button>
-
-</section>
+<audio id="music" loop>
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
 
 
-<!-- CAKE -->
+<!-- ================= OPENING ================= -->
 
-<section id="cake">
+<section class="page active" id="opening">
 
-    <h2>
-        Before anything else...
-    </h2>
+    <div class="content">
 
-    <p>
-        Make a wish. 🎂
-    </p>
+        <div class="opening-heart">♡</div>
 
-    <div class="cake">
-        🎂
-    </div>
+        <div class="eyebrow">
+            A little something for you
+        </div>
 
-    <div id="candle"
-         class="candle"
-         onclick="blowCandle()">
+        <h1 class="opening-title">
+            Hey Birthday Boy.
+        </h1>
 
-        🕯️
+        <div class="line"></div>
+
+        <p>
+            I could have just wished you<br>
+            a Happy Birthday...
+        </p>
+
+        <p class="small" style="margin-top:15px;">
+            But where's the fun in that?
+        </p>
+
+        <button onclick="go('birthday')">
+            Begin the story
+        </button>
 
     </div>
 
-    <p id="candleText">
-        Tap the candle to blow it out ✨
-    </p>
+</section>
 
-    <button id="cakeNext"
-            class="hidden"
-            onclick="nextSection('memories')">
 
-        Now look at this 📸
+<!-- ================= BIRTHDAY ================= -->
 
-    </button>
+<section class="page" id="birthday">
+
+    <div class="content">
+
+        <div class="eyebrow">
+            Chapter I
+        </div>
+
+        <div class="birthday-number">
+            01
+        </div>
+
+        <h2>
+            Happy Birthday ❤️
+        </h2>
+
+        <div class="line"></div>
+
+        <p>
+            To my best friend,<br>
+            my favourite idiot,<br>
+            and one of the people<br>
+            I'm genuinely grateful for.
+        </p>
+
+        <button onclick="go('candlePage')">
+            There's something more
+        </button>
+
+    </div>
 
 </section>
 
 
-<!-- MEMORIES -->
+<!-- ================= CANDLE ================= -->
 
-<section id="memories">
+<section class="page" id="candlePage">
 
-    <h2>
-        Some of Our Memories 📸
-    </h2>
+    <div class="content">
 
-    <p>
-        A few moments that I'm really glad I have.
-    </p>
+        <div class="eyebrow">
+            Before we continue...
+        </div>
+
+        <h2>
+            Make a wish.
+        </h2>
+
+        <p>
+            You know the rule.
+        </p>
+
+        <div
+            id="candle"
+            class="candle"
+            onclick="blowCandle()">
+            🕯️
+        </div>
+
+        <p id="wishText" class="wish">
+            Tap the candle.
+        </p>
+
+        <button
+            id="candleNext"
+            style="display:none;"
+            onclick="go('pause')">
+            Now keep going →
+        </button>
+
+    </div>
+
+</section>
 
 
-    <div class="memory-container">
+<!-- ================= SUSPENSE ================= -->
 
-        <div class="memory-card">
+<section class="page" id="pause">
 
-            <img id="memoryImage"
-                 class="memory-photo"
-                 src="photo1.jpg"
-                 alt="Our memory">
+    <div class="content">
 
-            <div id="memoryText"
-                 class="memory-text">
+        <div class="pause-text">
+            Wait...
+        </div>
 
-                One of those moments I'll always remember. ❤️
+        <div class="pause-dot"></div>
 
+        <p>
+            Some memories deserve<br>
+            a little space before they appear.
+        </p>
+
+        <button onclick="go('memories')">
+            Okay, show me
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ================= MEMORIES ================= -->
+
+<section class="page" id="memories">
+
+    <div class="content">
+
+        <div class="eyebrow">
+            Chapter II · Us
+        </div>
+
+        <div class="memory-counter" id="counter">
+            01 / 12
+        </div>
+
+        <div class="memory-frame">
+
+            <img
+                id="memoryImage"
+                src="photo1.jpg"
+                alt="Memory">
+
+            <div
+                id="memoryCaption"
+                class="memory-caption">
+                Some moments don't need a reason.
+                They're just worth keeping. ❤️
             </div>
 
         </div>
 
+        <div class="progress" id="progress"></div>
+
+        <div class="memory-buttons">
+
+            <button onclick="previousMemory()">
+                ←
+            </button>
+
+            <button onclick="nextMemory()">
+                →
+            </button>
+
+        </div>
+
+        <button
+            id="memoryNext"
+            style="display:none;"
+            onclick="go('letter')">
+
+            One last thing...
+        </button>
+
     </div>
-
-
-    <div class="dots">
-
-        <span class="dot active"></span>
-        <span class="dot"></span>
-        <span class="dot"></span>
-        <span class="dot"></span>
-
-    </div>
-
-
-    <button onclick="nextMemory()">
-
-        Next memory →
-
-    </button>
-
-
-    <button id="memoryNext"
-            class="hidden"
-            onclick="nextSection('message')">
-
-        One more thing 💌
-
-    </button>
 
 </section>
 
 
-<!-- MESSAGE -->
+<!-- ================= LETTER ================= -->
 
-<section id="message">
+<section class="page" id="letter">
 
-    <h2>
-        Just So You Know ❤️
-    </h2>
+    <div class="letter-paper">
 
-    <div class="letter">
+        <div class="eyebrow">
+            A little note
+        </div>
+
+        <h2>
+            Just so you know...
+        </h2>
+
+        <div class="line" style="margin-left:0;"></div>
 
         <p>
-            I don't always say it, but I'm really glad
-            you're my friend.
+            I don't always say it,
+            but I'm really glad you're my friend.
         </p>
 
         <br>
 
         <p>
-            We've had so many random conversations,
-            stupid moments, laughs and memories.
-            Some are worth remembering and some are
-            probably better left forgotten. 😂
+            We've had random conversations,
+            stupid jokes, unexpected plans,
+            annoying moments and memories
+            that somehow became important.
         </p>
 
         <br>
 
         <p>
-            But honestly, I wouldn't change any of it.
+            And honestly, that's what I like about
+            our friendship.
+            It doesn't have to be perfect.
+            It just has to be ours.
+        </p>
+
+        <br>
+
+        <p>
             I hope no matter how much life changes,
-            we never become those friends who need
+            we never become those people who need
             a reason to talk.
         </p>
 
+        <div class="signature">
+            — Your favourite person to annoy ❤️
+        </div>
+
+        <button
+            onclick="go('funny')"
+            style="color:#38271f;border-color:#86634e;">
+
+            Okay, enough emotions 😂
+        </button>
+
     </div>
-
-
-    <button onclick="nextSection('funny')">
-
-        Okay, enough emotions 😂
-
-    </button>
 
 </section>
 
 
-<!-- FUNNY -->
+<!-- ================= FUNNY ================= -->
 
-<section id="funny">
+<section class="page" id="funny">
 
-    <h2>
-        One Important Thing...
-    </h2>
+    <div class="content">
 
-    <p class="funny-text">
+        <div class="eyebrow">
+            Important announcement
+        </div>
 
-        You're another year older now...
+        <h2>
+            You're older now.
+        </h2>
 
-        <br><br>
+        <div class="line"></div>
 
-        So hopefully this is finally the year
-        you become wiser.
+        <p class="funny-big">
+            So technically...
+            you're supposed to be wiser.
+        </p>
 
-        <br>
+        <p class="funny-small">
+            No pressure. 😂
+        </p>
 
-        <b>At least for your age. 😂</b>
+        <button onclick="go('beforeGift')">
+            I haven't forgotten something...
+        </button>
 
-    </p>
-
-
-    <button onclick="nextSection('gift')">
-
-        Okay... your actual surprise 👀
-
-    </button>
+    </div>
 
 </section>
 
 
-<!-- GIFT -->
+<!-- ================= BEFORE GIFT ================= -->
 
-<section id="gift">
+<section class="page" id="beforeGift">
 
-    <h2>
-        Okay... 👀
-    </h2>
+    <div class="content">
 
-    <p>
-        Remember that one thing you keep saying
-        you want?
-    </p>
+        <div class="eyebrow">
+            Chapter III
+        </div>
 
-    <p>
-        Tap the gift.
-    </p>
+        <p class="question">
+            You thought<br>
+            that was everything?
+        </p>
 
+        <div class="line"></div>
 
-    <div class="gift"
-         onclick="openGift()">
+        <p>
+            Nope.
+        </p>
 
-        🎁
+        <button onclick="go('gift')">
+            There's one more thing 👀
+        </button>
 
     </div>
 
+</section>
 
-    <div id="giftReveal"
-         class="hidden earring-box">
+
+<!-- ================= GIFT ================= -->
+
+<section class="page" id="gift">
+
+    <div class="content">
+
+        <div class="eyebrow">
+            The final surprise
+        </div>
+
+        <h2>
+            I remembered.
+        </h2>
+
+        <p>
+            There is something waiting for you.
+        </p>
+
+        <div
+            class="gift-box"
+            onclick="openGift()">
+
+            <div class="gift-bow">🎀</div>
+
+            <div class="gift-lid"></div>
+
+            <div class="gift-base"></div>
+
+            <div class="gift-ribbon"></div>
+
+        </div>
+
+        <p class="small">
+            Tap the box.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ================= REVEAL ================= -->
+
+<section class="page" id="reveal">
+
+    <div class="content reveal-text">
+
+        <div class="eyebrow">
+            For you
+        </div>
 
         <div class="earring">
-            💛✨
+            ✨💛✨
         </div>
 
         <h2>
             I actually remembered. 👀
         </h2>
 
+        <div class="line"></div>
+
         <p>
             You kept saying you wanted
-            <br>
-            <b>one earring for your ear.</b>
+            one earring for your ear.
         </p>
 
         <br>
 
         <p class="gold">
-            So... this one's for you. 💛
+            So this one's for you. 💛
         </p>
 
-        <br>
-
-        <p>
+        <p class="final-line">
             Happy Birthday, idiot. ❤️
         </p>
 
@@ -579,145 +903,231 @@ button:hover {
 </section>
 
 
-
 <script>
 
+/* ================= NAVIGATION ================= */
 
-/* CHANGE SECTION */
+function go(id){
 
-function nextSection(id) {
-
-    document.querySelectorAll("section").forEach(section => {
-
-        section.classList.remove("active");
-
+    document.querySelectorAll(".page").forEach(page=>{
+        page.classList.remove("active");
     });
-
 
     document.getElementById(id).classList.add("active");
 
-
-    window.scrollTo({
-
-        top: 0,
-
-        behavior: "smooth"
-
-    });
+    window.scrollTo(0,0);
 
 }
 
 
-/* BLOW CANDLE */
+/* ================= CANDLE ================= */
 
-function blowCandle() {
+function blowCandle(){
 
     const candle =
         document.getElementById("candle");
 
-
-    candle.innerHTML = "💨";
+    candle.innerHTML="💨";
 
     candle.classList.add("off");
 
-
-    document.getElementById("candleText").innerHTML =
+    document.getElementById("wishText").innerHTML =
         "Wish made. ✨";
 
-
-    document.getElementById("cakeNext")
-        .classList.remove("hidden");
+    document.getElementById("candleNext").style.display =
+        "inline-block";
 
 }
 
 
-/* MEMORIES */
-
-let memoryIndex = 0;
-
+/* ================= MEMORIES ================= */
 
 const memories = [
 
     {
-        image: "photo1.jpg",
-        text: "One of those moments I'll always remember. ❤️"
+        image:"photo1.jpg",
+        text:"Some moments don't need a reason. They're just worth keeping. ❤️"
     },
 
     {
-        image: "photo2.jpg",
-        text: "Somehow we always end up making memories. 😂"
+        image:"photo2.jpg",
+        text:"A random moment that somehow became a memory."
     },
 
     {
-        image: "photo3.jpg",
-        text: "Still one of my favourite memories with you."
+        image:"photo3.jpg",
+        text:"Somewhere between the plans and the chaos... us."
     },
 
     {
-        image: "photo4.jpg",
-        text: "We've really come a long way. ❤️"
+        image:"photo4.jpg",
+        text:"The kind of memory you look back at and smile."
+    },
+
+    {
+        image:"photo5.jpg",
+        text:"Proof that we actually know how to have fun. 😂"
+    },
+
+    {
+        image:"photo6.jpg",
+        text:"Another little chapter of our story."
+    },
+
+    {
+        image:"photo7.jpg",
+        text:"Not perfect. Not planned. Still special."
+    },
+
+    {
+        image:"photo8.jpg",
+        text:"Some memories simply feel different."
+    },
+
+    {
+        image:"photo9.jpg",
+        text:"A moment I'll always be happy I captured."
+    },
+
+    {
+        image:"photo10.jpg",
+        text:"And then there are the completely random ones."
+    },
+
+    {
+        image:"photo11.jpg",
+        text:"Years from now, these little moments will mean even more."
+    },
+
+    {
+        image:"photo12.jpg",
+        text:"And this one... I definitely wanted you to remember. ❤️"
     }
 
 ];
 
 
-function nextMemory() {
-
-    memoryIndex++;
+let memoryIndex=0;
 
 
-    if (memoryIndex >= memories.length) {
+/* CREATE DOTS */
 
-        document.getElementById("memoryNext")
-            .classList.remove("hidden");
+const progress =
+    document.getElementById("progress");
 
-        return;
+memories.forEach((memory,index)=>{
 
+    const dot=document.createElement("span");
+
+    if(index===0){
+        dot.classList.add("active");
     }
 
+    progress.appendChild(dot);
+
+});
+
+
+function showMemory(){
 
     document.getElementById("memoryImage").src =
         memories[memoryIndex].image;
 
-
-    document.getElementById("memoryText").innerHTML =
+    document.getElementById("memoryCaption").innerHTML =
         memories[memoryIndex].text;
 
-
-    const dots =
-        document.querySelectorAll(".dot");
-
-
-    dots.forEach(dot =>
-        dot.classList.remove("active")
-    );
+    document.getElementById("counter").innerHTML =
+        String(memoryIndex+1).padStart(2,"0")
+        + " / "
+        + memories.length;
 
 
-    if (dots[memoryIndex]) {
+    document.querySelectorAll(".progress span")
+        .forEach((dot,index)=>{
 
-        dots[memoryIndex]
-            .classList.add("active");
+            dot.classList.toggle(
+                "active",
+                index===memoryIndex
+            );
+
+        });
+
+
+    if(memoryIndex === memories.length-1){
+
+        document.getElementById("memoryNext")
+            .style.display="inline-block";
 
     }
 
 }
 
 
-/* GIFT */
+function nextMemory(){
 
-function openGift() {
+    if(memoryIndex < memories.length-1){
 
-    document.querySelector(".gift")
-        .style.display = "none";
+        memoryIndex++;
+
+        showMemory();
+
+    }
+
+}
 
 
-    document.getElementById("giftReveal")
-        .classList.remove("hidden");
+function previousMemory(){
+
+    if(memoryIndex > 0){
+
+        memoryIndex--;
+
+        showMemory();
+
+    }
+
+}
+
+
+/* ================= GIFT ================= */
+
+function openGift(){
+
+    go("reveal");
+
+}
+
+
+/* ================= MUSIC ================= */
+
+let musicPlaying=false;
+
+function toggleMusic(){
+
+    const music=document.getElementById("music");
+    const button=document.getElementById("musicButton");
+
+    if(!musicPlaying){
+
+        music.play().catch(()=>{});
+
+        musicPlaying=true;
+
+        button.innerHTML="♫ Playing";
+
+    }else{
+
+        music.pause();
+
+        musicPlaying=false;
+
+        button.innerHTML="♫ Music";
+
+    }
 
 }
 
 </script>
-
 
 </body>
 </html>
