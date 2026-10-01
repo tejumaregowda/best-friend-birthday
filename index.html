@@ -423,113 +423,746 @@ button{
 
 
 /* =========================================================
-   TRANSITION INTO MEMORIES
+   HAPPY BIRTHDAY OPENING
 ========================================================= */
 
-.bridge{
+.birthdayOpening{
     background:
-        linear-gradient(
-            135deg,
-            #d9c1a4,
-            #ead8c0 50%,
-            #c7aa89
+        radial-gradient(
+            circle at 50% 42%,
+            #71422d 0%,
+            #3a241b 38%,
+            #1a0f0b 75%,
+            #0c0705 100%
         );
-
-    color:#4b3629;
 }
 
-.bridge::after{
-    opacity:.08;
-}
-
-.paperCard{
-    width:84vw;
-    max-width:410px;
-
-    padding:54px 30px 60px;
-
-    background:
-        repeating-linear-gradient(
-            0deg,
-            rgba(92,62,42,.025) 0 1px,
-            transparent 1px 5px
-        ),
-        #ead9c2;
-
-    color:#604838;
-
-    box-shadow:
-        0 22px 60px rgba(0,0,0,.35);
-
-    transform:
-        rotate(-1.5deg);
-
+.birthdayOpening .content{
     animation:
-        paperAppear 1.2s ease both;
-
-    position:relative;
+        birthdayEntrance 1.5s cubic-bezier(.2,.8,.2,1) both;
 }
 
-.paperCard::before{
-    content:"";
-
-    position:absolute;
-
-    width:65px;
-    height:20px;
-
-    background:rgba(204,169,125,.48);
-
-    left:50%;
-    top:-8px;
-
-    transform:
-        translateX(-50%)
-        rotate(-2deg);
-}
-
-.paperCard p{
-    font-size:
-        clamp(18px,5vw,25px);
-
-    line-height:1.65;
-
-    font-style:italic;
-}
-
-.paperCard .paperSmall{
-    margin-top:23px;
-
-    font-size:11px;
-
-    letter-spacing:2px;
-
-    text-transform:uppercase;
-
-    color:#92725e;
-
-    font-style:normal;
-}
-
-@keyframes paperAppear{
+@keyframes birthdayEntrance{
 
     from{
         opacity:0;
         transform:
-            rotate(5deg)
             translateY(25px)
-            scale(.93);
+            scale(.96);
+        filter:blur(8px);
     }
 
     to{
         opacity:1;
-        transform:
-            rotate(-1.5deg)
-            translateY(0)
-            scale(1);
+        transform:none;
+        filter:none;
     }
 }
 
+.birthdayHero{
+    font-size:
+        clamp(46px,13vw,72px);
+
+    line-height:1;
+
+    font-weight:400;
+
+    letter-spacing:-2px;
+
+    color:#fff3e4;
+
+    text-shadow:
+        0 8px 35px rgba(0,0,0,.35);
+
+    animation:
+        birthdayPulse 4s ease-in-out infinite;
+}
+
+@keyframes birthdayPulse{
+
+    0%,100%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.025);
+    }
+}
+
+.birthdayHeart{
+    margin-top:18px;
+
+    font-size:18px;
+
+    color:#d9a878;
+
+    opacity:.85;
+
+    animation:
+        heartGlow 2.5s ease-in-out infinite;
+}
+
+@keyframes heartGlow{
+
+    0%,100%{
+        opacity:.55;
+        transform:scale(1);
+    }
+
+    50%{
+        opacity:1;
+        transform:scale(1.15);
+    }
+}
+
+.birthdayOpeningText{
+    margin-top:24px;
+
+    font-size:
+        clamp(17px,4.5vw,22px);
+
+    color:#ead7c6;
+
+    line-height:1.6;
+}
+
+.birthdayTiny{
+    margin-top:12px;
+
+    font-size:12px;
+
+    color:#bda08b;
+
+    font-style:italic;
+}
+
+.birthdayGlow{
+    position:absolute;
+
+    width:75vw;
+    height:75vw;
+
+    max-width:500px;
+    max-height:500px;
+
+    left:50%;
+    top:43%;
+
+    transform:translate(-50%,-50%);
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,197,119,.18),
+            rgba(255,155,78,.05) 45%,
+            transparent 70%
+        );
+
+    filter:blur(20px);
+
+    animation:
+        birthdayGlowMove 5s ease-in-out infinite;
+}
+
+@keyframes birthdayGlowMove{
+
+    0%,100%{
+        opacity:.65;
+        transform:
+            translate(-50%,-50%)
+            scale(.92);
+    }
+
+    50%{
+        opacity:1;
+        transform:
+            translate(-50%,-50%)
+            scale(1.08);
+    }
+}
+
+.birthdaySpark{
+    position:absolute;
+
+    color:#e8bd88;
+
+    opacity:.55;
+
+    z-index:5;
+
+    animation:
+        sparkFloat 5s ease-in-out infinite;
+}
+
+.spark1{
+    left:18%;
+    top:25%;
+    font-size:14px;
+}
+
+.spark2{
+    right:22%;
+    top:30%;
+    font-size:20px;
+    animation-delay:1s;
+}
+
+.spark3{
+    left:26%;
+    bottom:28%;
+    font-size:10px;
+    animation-delay:2s;
+}
+
+.spark4{
+    right:18%;
+    bottom:25%;
+    font-size:16px;
+    animation-delay:3s;
+}
+
+.spark5{
+    left:48%;
+    top:18%;
+    font-size:8px;
+    animation-delay:1.8s;
+}
+
+@keyframes sparkFloat{
+
+    0%,100%{
+        transform:
+            translateY(0)
+            rotate(0deg);
+        opacity:.25;
+    }
+
+    50%{
+        transform:
+            translateY(-18px)
+            rotate(12deg);
+        opacity:.8;
+    }
+}
+
+
+/* =========================================================
+   CANDLE PAGE
+========================================================= */
+
+.candlePage{
+    background:
+        radial-gradient(
+            circle at 50% 48%,
+            #6a402d 0%,
+            #302019 45%,
+            #140b08 100%
+        );
+}
+
+.candleContent{
+    position:relative;
+
+    width:min(88vw,430px);
+
+    margin:auto;
+
+    text-align:center;
+
+    z-index:10;
+
+    animation:
+        candleEntrance 1.1s ease both;
+}
+
+@keyframes candleEntrance{
+
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+
+    to{
+        opacity:1;
+        transform:none;
+    }
+}
+
+.candleTitle{
+    font-size:
+        clamp(37px,10vw,54px);
+
+    font-weight:400;
+
+    color:#fff1df;
+
+    line-height:1.1;
+}
+
+.candleSubtitle{
+    margin-top:14px;
+
+    font-size:16px;
+
+    line-height:1.65;
+
+    color:#d9c0ad;
+}
+
+.candleSpark{
+    position:absolute;
+
+    color:#e8bd88;
+
+    opacity:.5;
+
+    z-index:5;
+
+    animation:
+        candleSparkFloat 4.5s ease-in-out infinite;
+}
+
+.cs1{
+    left:17%;
+    top:25%;
+    font-size:14px;
+}
+
+.cs2{
+    right:18%;
+    top:29%;
+    font-size:18px;
+    animation-delay:1s;
+}
+
+.cs3{
+    left:22%;
+    bottom:22%;
+    font-size:9px;
+    animation-delay:2s;
+}
+
+.cs4{
+    right:23%;
+    bottom:27%;
+    font-size:13px;
+    animation-delay:2.7s;
+}
+
+@keyframes candleSparkFloat{
+
+    0%,100%{
+        transform:translateY(0);
+        opacity:.25;
+    }
+
+    50%{
+        transform:translateY(-14px);
+        opacity:.75;
+    }
+}
+
+
+/* cake area */
+
+.cakeArea{
+    position:relative;
+
+    width:240px;
+    height:245px;
+
+    margin:22px auto 0;
+}
+
+
+/* warm candle light */
+
+.candleGlow{
+    position:absolute;
+
+    width:170px;
+    height:170px;
+
+    left:50%;
+    top:8px;
+
+    transform:translateX(-50%);
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,190,88,.28),
+            rgba(255,144,55,.09) 45%,
+            transparent 72%
+        );
+
+    filter:blur(13px);
+
+    animation:
+        candleLight 1.8s ease-in-out infinite;
+
+    z-index:1;
+}
+
+@keyframes candleLight{
+
+    0%,100%{
+        opacity:.65;
+        transform:
+            translateX(-50%)
+            scale(.9);
+    }
+
+    50%{
+        opacity:1;
+        transform:
+            translateX(-50%)
+            scale(1.08);
+    }
+}
+
+
+/* flame */
+
+.flame{
+    position:absolute;
+
+    left:50%;
+    top:12px;
+
+    width:28px;
+    height:46px;
+
+    transform:
+        translateX(-50%)
+        rotate(2deg);
+
+    border-radius:
+        55% 45% 55% 45%;
+
+    background:
+        radial-gradient(
+            ellipse at 50% 70%,
+            #fff5bf 0%,
+            #ffd36b 35%,
+            #f08b35 68%,
+            transparent 72%
+        );
+
+    filter:
+        drop-shadow(0 0 12px rgba(255,182,65,.8))
+        drop-shadow(0 0 25px rgba(255,139,45,.4));
+
+    z-index:8;
+
+    animation:
+        flameFlicker .7s ease-in-out infinite alternate;
+}
+
+.flameInner{
+    position:absolute;
+
+    width:10px;
+    height:22px;
+
+    left:50%;
+    bottom:4px;
+
+    transform:translateX(-50%);
+
+    border-radius:50%;
+
+    background:#fff8d5;
+}
+
+@keyframes flameFlicker{
+
+    0%{
+        transform:
+            translateX(-50%)
+            rotate(-4deg)
+            scale(.95);
+    }
+
+    100%{
+        transform:
+            translateX(-50%)
+            rotate(5deg)
+            scale(1.08);
+    }
+}
+
+
+/* candle */
+
+.candleStick{
+    position:absolute;
+
+    left:50%;
+    top:48px;
+
+    width:30px;
+    height:92px;
+
+    transform:translateX(-50%);
+
+    border-radius:5px 5px 3px 3px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #f1d8b7,
+            #fff0d4 48%,
+            #d7b18b
+        );
+
+    box-shadow:
+        0 7px 18px rgba(0,0,0,.3);
+
+    z-index:5;
+}
+
+.candleStripe{
+    position:absolute;
+
+    width:100%;
+    height:8px;
+
+    top:28px;
+
+    background:
+        rgba(177,94,67,.35);
+
+    transform:skewY(-8deg);
+}
+
+
+/* cake */
+
+.cake{
+    position:absolute;
+
+    left:50%;
+    bottom:18px;
+
+    width:175px;
+    height:82px;
+
+    transform:translateX(-50%);
+
+    z-index:4;
+}
+
+.cakeTop{
+    position:absolute;
+
+    left:0;
+    top:0;
+
+    width:175px;
+    height:30px;
+
+    border-radius:50%;
+
+    background:
+        linear-gradient(
+            180deg,
+            #f1d2b1,
+            #c78c68
+        );
+
+    box-shadow:
+        0 8px 15px rgba(0,0,0,.25);
+}
+
+.cakeBody{
+    position:absolute;
+
+    left:8px;
+    top:15px;
+
+    width:159px;
+    height:52px;
+
+    border-radius:
+        0 0 12px 12px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #8b4d3c,
+            #a9664d,
+            #754031
+        );
+}
+
+.cakeBase{
+    position:absolute;
+
+    left:0;
+    bottom:0;
+
+    width:175px;
+    height:13px;
+
+    border-radius:8px;
+
+    background:#5b3328;
+}
+
+
+/* smoke */
+
+.smoke{
+    position:absolute;
+
+    left:50%;
+    top:0;
+
+    width:8px;
+    height:32px;
+
+    border-radius:50%;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(220,207,192,.4),
+            transparent
+        );
+
+    opacity:0;
+
+    filter:blur(3px);
+
+    z-index:12;
+}
+
+.smoke1{
+    transform:translateX(-50%);
+}
+
+.smoke2{
+    transform:
+        translateX(-50%)
+        translateX(-8px)
+        rotate(8deg);
+}
+
+.smoke3{
+    transform:
+        translateX(-50%)
+        translateX(8px)
+        rotate(-8deg);
+}
+
+
+/* candle button */
+
+.blowButton{
+    margin-top:8px;
+
+    padding:12px 25px;
+
+    border-radius:30px;
+
+    border:
+        1px solid rgba(231,194,150,.45);
+
+    background:
+        rgba(255,220,177,.06);
+
+    color:#e8c8a5;
+
+    font-size:11px;
+
+    letter-spacing:2.5px;
+
+    text-transform:uppercase;
+
+    cursor:pointer;
+
+    backdrop-filter:blur(8px);
+
+    transition:
+        transform .3s,
+        background .3s,
+        border-color .3s;
+}
+
+.blowButton:hover{
+    transform:translateY(-2px);
+
+    background:
+        rgba(255,220,177,.11);
+
+    border-color:
+        rgba(231,194,150,.7);
+}
+
+
+/* candle blown out */
+
+.candlePage.blown .flame{
+    animation:none;
+
+    opacity:0;
+
+    transform:
+        translateX(-50%)
+        translateY(-10px)
+        scale(.3);
+
+    transition:
+        opacity .35s,
+        transform .45s;
+}
+
+.candlePage.blown .candleGlow{
+    opacity:0;
+
+    transition:opacity .5s;
+}
+
+.candlePage.blown .smoke1{
+    animation:
+        smokeRise 1.8s ease-out forwards;
+}
+
+.candlePage.blown .smoke2{
+    animation:
+        smokeRise 1.6s .15s ease-out forwards;
+}
+
+.candlePage.blown .smoke3{
+    animation:
+        smokeRise 1.9s .25s ease-out forwards;
+}
+
+@keyframes smokeRise{
+
+    0%{
+        opacity:0;
+        transform:
+            translate(-50%,0)
+            scale(.6);
+    }
+
+    25%{
+        opacity:.55;
+    }
+
+    100%{
+        opacity:0;
+        transform:
+            translate(-50%,-65px)
+            scale(1.7);
+    }
+}   
 
 /* =========================================================
    MEMORY SECTION
@@ -1566,6 +2199,14 @@ button{
      MUSIC
 ===================================================== -->
 
+<!-- =====================================================
+     MUSIC
+===================================================== -->
+
+<audio id="birthdayMusic" preload="auto">
+    <source src="birthday.mp3" type="audio/mpeg">
+</audio>
+
 <audio id="music" loop preload="auto">
     <source src="music.mp3" type="audio/mpeg">
 </audio>
@@ -1583,112 +2224,142 @@ button{
      OPENING
 ===================================================== -->
 
+<!-- =====================================================
+     HAPPY BIRTHDAY OPENING
+===================================================== -->
+
 <section
-    class="screen opening active"
+    class="screen opening active birthdayOpening"
     id="opening"
 >
 
     <div class="ambientLight"></div>
     <div class="vignette"></div>
 
+    <!-- soft floating birthday details -->
+
+    <div class="birthdaySpark spark1">✦</div>
+    <div class="birthdaySpark spark2">·</div>
+    <div class="birthdaySpark spark3">✦</div>
+    <div class="birthdaySpark spark4">·</div>
+    <div class="birthdaySpark spark5">✦</div>
+
+    <div class="birthdayGlow"></div>
+
     <div class="content">
 
         <div class="eyebrow">
-            a little something
+            today is your day
         </div>
 
-        <h1 class="title">
-            For you.
+        <h1 class="birthdayHero">
+            Happy Birthday My boy
         </h1>
 
-        <p class="subtitle">
+        <div class="birthdayHeart">
+            ♥
+        </div>
 
-            I could've just sent you a
-            <i>Happy Birthday</i>
-            message...
-
-            <br><br>
-
-            But obviously,
-            I had to make things difficult. 😂
-
+        <p class="birthdayOpeningText">
+            Not just a message this time,
         </p>
 
-        <p class="tinyNote">
-            Don't skip anything.
+        <p class="birthdayTiny">
+            I made you something ✨
         </p>
-
-        <button
-            class="tap"
-            onclick="goTo('birthday')"
-        >
-            Start
-            <span>→</span>
-        </button>
 
     </div>
 
 </section>
-
 
 <!-- =====================================================
      BIRTHDAY
 ===================================================== -->
 
+<!-- =====================================================
+     CANDLE PAGE
+===================================================== -->
+
 <section
-    class="screen birthday"
+    class="screen birthday candlePage"
     id="birthday"
 >
 
-    <div class="ambientLight"></div>
+    <div class="ambientLight candleAmbient"></div>
     <div class="vignette"></div>
 
-    <div class="floatingHeart heart1">♡</div>
-    <div class="floatingHeart heart2">✦</div>
-    <div class="floatingHeart heart3">♡</div>
+    <!-- floating warm particles -->
 
-    <div class="content">
+    <div class="candleSpark cs1">✦</div>
+    <div class="candleSpark cs2">·</div>
+    <div class="candleSpark cs3">✦</div>
+    <div class="candleSpark cs4">·</div>
+
+    <div class="candleContent">
 
         <div class="eyebrow">
-            okay, birthday boy
+            one little thing
         </div>
 
-        <h2 class="title">
-            Happy Birthday. ❤️
+        <h2 class="candleTitle">
+            Make a wish ✨
         </h2>
 
-        <div class="divider"></div>
-
-        <p class="subtitle">
-
-            You're officially another year older.
-
+        <p class="candleSubtitle">
+            Go on...
             <br>
-
-            And somehow still the same idiot
-            I've known all this time 😂
-
+            blow out the candle.
         </p>
 
-        <p class="smallText">
+        <!-- CAKE -->
 
-            I wanted to make you something
-            instead of just sending another message.
+        <div class="cakeArea">
 
-        </p>
+            <div class="candleGlow"></div>
+
+            <div class="flame" id="flame">
+
+                <div class="flameInner"></div>
+
+            </div>
+
+            <div class="candleStick">
+
+                <div class="candleWax"></div>
+
+                <div class="candleStripe"></div>
+
+            </div>
+
+            <div class="cake">
+
+                <div class="cakeTop"></div>
+
+                <div class="cakeBody"></div>
+
+                <div class="cakeBase"></div>
+
+            </div>
+
+            <!-- smoke after candle goes out -->
+
+            <div class="smoke smoke1"></div>
+            <div class="smoke smoke2"></div>
+            <div class="smoke smoke3"></div>
+
+        </div>
 
         <button
-            class="tap"
-            onclick="goTo('bridge')"
+            class="blowButton"
+            id="blowButton"
+            onclick="blowCandle()"
         >
-            I have a few things to show you
-            <span>→</span>
+            Blow it out ✨
         </button>
 
     </div>
 
 </section>
-
 
 <!-- =====================================================
      PAPER BRIDGE
@@ -2050,6 +2721,8 @@ const musicButton =
 document.getElementById("musicButton");
 
 let musicStarted=false;
+let birthdayMusicStarted=false;
+let candleBlown=false;
 
 let memoryStarted=false;
 
@@ -2060,6 +2733,56 @@ let memoryTimer=null;
 let giftOpened=false;
 
 
+/* =========================================================
+   HAPPY BIRTHDAY MUSIC
+========================================================= */
+
+const birthdayMusic =
+    document.getElementById("birthdayMusic");
+
+
+async function startBirthdayMusic(){
+
+    if(birthdayMusicStarted){
+        return;
+    }
+
+    birthdayMusicStarted=true;
+
+    birthdayMusic.volume=.45;
+
+    try{
+
+        await birthdayMusic.play();
+
+    }
+
+    catch(error){
+
+        /*
+           If the browser blocks audio,
+           the page still continues normally.
+        */
+
+    }
+}
+
+
+/*
+   When the short birthday music ends,
+   automatically move to the candle page.
+*/
+
+birthdayMusic.addEventListener(
+    "ended",
+    ()=>{
+
+        goTo("birthday");
+
+    }
+);
+
+   
 /* =========================================================
    GO TO SCREEN
 ========================================================= */
@@ -2074,9 +2797,20 @@ function goTo(id){
         .getElementById(id)
         .classList.add("active");
 
+    /*
+       Start the short Happy Birthday piano
+       when the user enters the opening.
+    */
+
+    if(id==="opening"){
+
+        startBirthdayMusic();
+
+    }
+
 }
 
-
+   
 /* =========================================================
    MUSIC
 ========================================================= */
@@ -2349,7 +3083,42 @@ function showMemory(index){
 }
    
 
+/* =========================================================
+   BLOW CANDLE
+========================================================= */
 
+function blowCandle(){
+
+    if(candleBlown){
+        return;
+    }
+
+    candleBlown=true;
+
+    const candlePage =
+        document.getElementById("birthday");
+
+    const blowButton =
+        document.getElementById("blowButton");
+
+    candlePage.classList.add("blown");
+
+    blowButton.textContent="✨";
+
+    /*
+       Give the smoke animation time to appear,
+       then continue naturally to the memory introduction.
+    */
+
+    setTimeout(()=>{
+
+        goTo("bridge");
+
+    },2200);
+
+}
+
+   
 /* =========================================================
    MYSTERY BOX
 ========================================================= */
