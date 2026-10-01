@@ -2791,7 +2791,9 @@ birthdayMusic.addEventListener(
 );
    
    function beginBirthday(){
-    const birthdayStart = document.querySelector(".birthdayStart");
+
+    const birthdayStart =
+        document.querySelector(".birthdayStart");
 
     if(birthdayStart){
         birthdayStart.disabled = true;
@@ -2799,9 +2801,10 @@ birthdayMusic.addEventListener(
         birthdayStart.style.pointerEvents = "none";
     }
 
+    goTo("birthday");
+
     startBirthdayMusic();
 }
-
    
 /* =========================================================
    GO TO SCREEN
