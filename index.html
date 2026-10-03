@@ -1076,6 +1076,20 @@ button{
 }
 
 
+/* candle waiting state: keep the instruction and button hidden
+   until the short birthday song has completely finished. */
+.candlePage.waitingForBirthdayMusic .candleSubtitle,
+.candlePage.waitingForBirthdayMusic .blowButton{
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+}
+
+.candlePage .candleSubtitle,
+.candlePage .blowButton{
+    transition:opacity .45s ease, visibility .45s ease;
+}
+
 /* candle button */
 
 .blowButton{
@@ -3044,6 +3058,348 @@ button{
 .memoryPage .pageInner img{width:100%!important;height:100%!important;object-fit:cover!important;border:0!important;box-shadow:none!important;}
 .memoryPage .paperFold{display:none!important;}
 .memoryPage::after{display:none!important;}
+
+
+/* =========================================================
+   V25 FINAL PHONE POLISH
+   Birthday audio, memory audio and reveal are independent.
+   Final reveal is clean, readable and breathable on a phone.
+========================================================= */
+
+/* Birthday song is its own audio; it never controls #music. */
+
+/* Hide only the candle instruction/button while birthday.mp3 is playing. */
+.candlePage.waitingForBirthdayMusic .candleSubtitle,
+.candlePage.waitingForBirthdayMusic .blowButton{
+    opacity:0 !important;
+    visibility:hidden !important;
+    pointer-events:none !important;
+}
+.candlePage:not(.waitingForBirthdayMusic) .candleSubtitle,
+.candlePage:not(.waitingForBirthdayMusic) .blowButton{
+    opacity:1;
+    visibility:visible;
+}
+
+/* FINAL REVEAL — remove the cramped/glassy PPT-card feeling. */
+.reveal .content{
+    width:min(88vw,390px) !important;
+    max-height:calc(100dvh - 44px) !important;
+    box-sizing:border-box !important;
+    padding:28px 22px 22px !important;
+    border:0 !important;
+    border-radius:0 !important;
+    background:transparent !important;
+    backdrop-filter:none !important;
+    box-shadow:none !important;
+    text-align:center !important;
+}
+.reveal .content::before{
+    content:none !important;
+    display:none !important;
+}
+.reveal .eyebrow{
+    margin:0 0 13px !important;
+    color:#ffe7bf !important;
+    font-size:10px !important;
+    line-height:1.4 !important;
+    letter-spacing:3px !important;
+    text-transform:none !important;
+    font-weight:400 !important;
+    text-shadow:0 2px 12px rgba(35,8,3,.55) !important;
+}
+.revealMemoryLine{
+    margin:0 auto 22px !important;
+    max-width:335px !important;
+    color:#fff1df !important;
+    font-size:14px !important;
+    line-height:1.55 !important;
+    letter-spacing:.1px !important;
+    text-shadow:0 2px 12px rgba(35,8,3,.55) !important;
+}
+.revealTitle{
+    margin:0 !important;
+    color:#fff8ed !important;
+    font-size:clamp(31px,8.2vw,42px) !important;
+    line-height:1.08 !important;
+    letter-spacing:-.7px !important;
+    font-weight:400 !important;
+    text-shadow:0 3px 16px rgba(40,10,4,.5) !important;
+}
+.revealTitle b{font-weight:600 !important;}
+.reveal .divider{
+    width:58px !important;
+    height:1px !important;
+    margin:17px auto !important;
+    background:rgba(255,224,174,.62) !important;
+}
+.revealText{
+    margin:0 !important;
+    color:#fff2df !important;
+    font-size:17px !important;
+    line-height:1.45 !important;
+    text-shadow:0 2px 12px rgba(35,8,3,.55) !important;
+}
+.revealText b{color:#fff8e9 !important; font-weight:600 !important;}
+.revealGold{
+    margin:24px 0 0 !important;
+    color:#ffe0a7 !important;
+    font-size:13px !important;
+    line-height:1.55 !important;
+    text-shadow:0 2px 12px rgba(35,8,3,.55) !important;
+}
+.reveal .signature{
+    margin:24px 0 0 !important;
+    color:#fff2dc !important;
+    font-size:16px !important;
+    line-height:1.3 !important;
+    text-shadow:0 2px 12px rgba(35,8,3,.55) !important;
+    animation:none !important;
+}
+.reveal .startAgain{
+    margin-top:28px !important;
+    padding:7px 15px !important;
+    border:1px solid rgba(255,235,210,.28) !important;
+    background:rgba(255,236,213,.045) !important;
+    color:rgba(255,226,191,.72) !important;
+    font-size:8px !important;
+    letter-spacing:2px !important;
+}
+.reveal .revealSticker{opacity:.7 !important;}
+
+@media(max-width:430px){
+    .reveal .content{
+        width:90vw !important;
+        max-height:calc(100dvh - 34px) !important;
+        padding:24px 17px 18px !important;
+    }
+    .reveal .eyebrow{font-size:9px !important; letter-spacing:2.4px !important; margin-bottom:11px !important;}
+    .revealMemoryLine{font-size:13px !important; line-height:1.48 !important; margin-bottom:19px !important;}
+    .revealTitle{font-size:30px !important; line-height:1.06 !important;}
+    .reveal .divider{margin:15px auto !important;}
+    .revealText{font-size:16px !important; line-height:1.4 !important;}
+    .revealGold{margin-top:20px !important; font-size:12px !important; line-height:1.5 !important;}
+    .reveal .signature{margin-top:20px !important; font-size:15px !important;}
+    .reveal .startAgain{margin-top:24px !important;}
+}
+
+@media(max-width:430px) and (max-height:720px){
+    .reveal .content{padding-top:18px !important; padding-bottom:12px !important;}
+    .revealMemoryLine{margin-bottom:14px !important;}
+    .revealTitle{font-size:27px !important;}
+    .reveal .divider{margin:12px auto !important;}
+    .revealGold{margin-top:15px !important;}
+    .reveal .signature{margin-top:15px !important;}
+    .reveal .startAgain{margin-top:18px !important;}
+}
+
+
+/* =========================================================
+   FINAL ACTION + REVEAL POLISH — PHONE FIRST
+   Every user-controlled step has a clearly identifiable control.
+========================================================= */
+.actionButton{
+    position:relative;
+    z-index:50;
+    min-width:190px;
+    min-height:48px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:9px;
+    font-weight:600;
+    -webkit-tap-highlight-color:transparent;
+}
+
+/* Make the main action controls unmistakable on a phone. */
+.tap.actionButton{
+    box-shadow:0 10px 28px rgba(20,7,3,.18), inset 0 1px 0 rgba(255,255,255,.10);
+}
+.tap.actionButton:active,
+.blowButton.actionButton:active,
+.boxTap.actionButton:active{
+    transform:translateY(1px) scale(.98);
+}
+
+/* Candle: waiting state is visually intentional, not a disabled-looking mystery. */
+.candlePage.waitingForBirthdayMusic .blowButton{
+    opacity:0 !important;
+    visibility:hidden !important;
+    pointer-events:none !important;
+}
+.candlePage:not(.waitingForBirthdayMusic) .blowButton.ready{
+    opacity:1 !important;
+    visibility:visible !important;
+    pointer-events:auto !important;
+    animation:readyPulse 1.8s ease-in-out infinite;
+}
+@keyframes readyPulse{
+    0%,100%{box-shadow:0 0 0 rgba(255,205,145,0),0 10px 26px rgba(20,7,3,.16)}
+    50%{box-shadow:0 0 24px rgba(255,205,145,.16),0 12px 30px rgba(20,7,3,.20)}
+}
+
+
+/* Mystery: the actual gift box is the only action target. */
+.mysteryHint{
+    margin:14px auto 0;
+    display:block;
+    color:#ffe1ae;
+    font-size:9px;
+    font-weight:700;
+    letter-spacing:2.4px;
+    text-transform:uppercase;
+    text-shadow:0 2px 10px rgba(35,8,3,.4);
+}
+.boxStage{
+    cursor:pointer;
+    -webkit-tap-highlight-color:transparent;
+}
+.boxStage:active{transform:translate(-50%,-50%) scale(.80);}
+
+/* Final reveal: highlight the words, but do NOT make them look like action buttons. */
+.revealLookBlock{
+    margin:24px auto 0;
+    width:min(92vw,350px);
+    text-align:center;
+    padding:0;
+    border:0;
+    border-radius:0;
+    background:none;
+    box-shadow:none;
+}
+.revealWait{
+    color:#ffe1a9;
+    font-size:12px;
+    font-style:italic;
+    margin-bottom:6px;
+}
+.revealScreenPrompt{
+    display:inline-block;
+    color:#fff4dd;
+    font-size:16px;
+    line-height:1.4;
+    font-weight:800;
+    text-shadow:0 2px 14px rgba(35,8,3,.6);
+    border-bottom:1px solid rgba(255,218,164,.55);
+    padding-bottom:4px;
+}
+.handRevealPrompt{
+    width:auto;
+    margin:19px auto 0;
+    padding:0;
+    border:0;
+    border-radius:0;
+    background:none;
+    color:#fff7e8;
+    font-size:18px;
+    line-height:1.2;
+    font-weight:900;
+    letter-spacing:1.3px;
+    text-align:center;
+    text-shadow:0 2px 14px rgba(35,8,3,.55);
+    animation:handPromptGlow 2.2s ease-in-out infinite;
+}
+.handRevealPrompt span{
+    color:#fff3d5;
+    border-bottom:2px solid rgba(255,222,162,.75);
+    padding-bottom:3px;
+}
+@keyframes handPromptGlow{
+    0%,100%{transform:translateY(0);text-shadow:0 2px 14px rgba(35,8,3,.5)}
+    50%{transform:translateY(-1px);text-shadow:0 0 22px rgba(255,198,105,.22),0 2px 14px rgba(35,8,3,.55)}
+}
+
+@media(max-width:600px){
+    .actionButton{min-height:46px;min-width:184px;font-size:11px;}
+    .mysteryText{top:7%;}
+    .mysteryText p{font-size:18px;line-height:1.4;}
+    .mysteryHint{font-size:8px;letter-spacing:2px;margin-top:11px;}
+    .boxStage{top:57%;transform:translate(-50%,-50%) scale(.82);}
+    .revealLookBlock{margin-top:20px;}
+    .revealScreenPrompt{font-size:15px;}
+    .handRevealPrompt{margin-top:15px;font-size:16px;}
+}
+
+
+/* Continue is a normal horizontal pill, never a vertical control. */
+.memoryContinue.actionButton{
+    width:190px !important;
+    min-width:190px !important;
+    min-height:48px !important;
+    height:48px !important;
+    padding:0 22px !important;
+    display:flex !important;
+    flex-direction:row !important;
+    flex-wrap:nowrap !important;
+    white-space:nowrap !important;
+    writing-mode:horizontal-tb !important;
+    text-orientation:mixed !important;
+    line-height:1 !important;
+    text-align:center !important;
+}
+.memoryContinue.actionButton span{display:inline-block !important; white-space:nowrap !important;}
+
+
+/* FINAL FIX — Continue is its own control, never inherits action layouts. */
+.memoryContinue{
+    position:absolute !important;
+    left:50% !important;
+    bottom:5.5% !important;
+    width:190px !important;
+    min-width:190px !important;
+    max-width:190px !important;
+    height:48px !important;
+    min-height:48px !important;
+    max-height:48px !important;
+    margin:0 !important;
+    padding:0 20px !important;
+    box-sizing:border-box !important;
+    display:flex !important;
+    flex-direction:row !important;
+    align-items:center !important;
+    justify-content:center !important;
+    gap:8px !important;
+    flex-wrap:nowrap !important;
+    writing-mode:horizontal-tb !important;
+    text-orientation:mixed !important;
+    white-space:nowrap !important;
+    word-break:keep-all !important;
+    overflow:hidden !important;
+    transform:translateX(-50%) translateY(10px) !important;
+    z-index:100 !important;
+    font-size:11px !important;
+    line-height:1 !important;
+    letter-spacing:2.5px !important;
+    text-align:center !important;
+    border:1px solid rgba(255,225,190,.52) !important;
+    border-radius:28px !important;
+    background:rgba(55,22,14,.32) !important;
+    color:#fff0dc !important;
+    appearance:none !important;
+    -webkit-appearance:none !important;
+}
+.memoryContinue.show{
+    opacity:1 !important;
+    pointer-events:auto !important;
+    transform:translateX(-50%) translateY(0) !important;
+}
+.memoryContinue span{
+    display:inline-block !important;
+    width:auto !important;
+    height:auto !important;
+    writing-mode:horizontal-tb !important;
+    white-space:nowrap !important;
+    line-height:1 !important;
+    flex:0 0 auto !important;
+}
+@media(max-width:430px){
+    .memoryContinue{
+        width:184px !important;
+        min-width:184px !important;
+        max-width:184px !important;
+        bottom:5% !important;
+    }
+}
 </style>
 </head>
 
@@ -3127,7 +3483,7 @@ button{
             I made you something ✨
         </p>
        <button
-          class="tap birthdayStart"
+          class="tap actionButton birthdayStart"
           onclick="beginBirthday()">
           Tap to begin <span>→</span>
        </button>
@@ -3217,7 +3573,7 @@ button{
         </div>
 
         <button
-            class="blowButton"
+            class="blowButton actionButton"
             id="blowButton"
             onclick="blowCandle()"
         >
@@ -3239,10 +3595,10 @@ button{
     <div class="bridgeLightBlob"></div>
 
     <div class="bridgeFrames">
-        <div class="miniFrame mini1"><img src="photo3.jpg" alt=""></div>
-        <div class="miniFrame mini2"><img src="photo6.jpg" alt=""></div>
-        <div class="miniFrame mini3"><img src="photo9.jpg" alt=""></div>
-        <div class="miniFrame mini4"><img src="photo12.jpg" alt=""></div>
+        <div class="miniFrame mini1"><img src="photo3.jpeg" alt=""></div>
+        <div class="miniFrame mini2"><img src="photo6.jpeg" alt=""></div>
+        <div class="miniFrame mini3"><img src="photo9.jpeg" alt=""></div>
+        <div class="miniFrame mini4"><img src="photo12.jpeg" alt=""></div>
     </div>
 
     <div class="bridgeContent">
@@ -3252,7 +3608,7 @@ button{
             A few favourite moments.<br>
             A lot of nonsense. And somehow, all of it is worth keeping.
         </p>
-        <button class="tap bridgeTap" onclick="startMemories()">
+        <button class="tap actionButton bridgeTap" onclick="startMemories()">
             Show me <span>→</span>
         </button>
     </div>
@@ -3273,21 +3629,21 @@ button{
     <div class="vignette"></div>
 
     <div class="photoCollage memoryBook" id="photoCollage">
-        <div class="memoryPage" data-page="0" style="z-index:12"><div class="pageInner"><img src="photo1.jpg" alt=""></div><span class="paperFold"></span></div>
-        <div class="memoryPage" data-page="1" style="z-index:11"><div class="pageInner"><img src="photo2.jpg" alt=""></div><span class="paperFold"></span></div>
-        <div class="memoryPage" data-page="2" style="z-index:10"><div class="pageInner"><img src="photo3.jpg" alt=""></div><span class="paperFold"></span></div>
-        <div class="memoryPage" data-page="3" style="z-index:9"><div class="pageInner"><img src="photo4.jpg" alt=""></div><span class="paperFold"></span></div>
-        <div class="memoryPage" data-page="4" style="z-index:8"><div class="pageInner"><img src="photo5.jpg" alt=""></div><span class="paperFold"></span></div>
-        <div class="memoryPage" data-page="5" style="z-index:7"><div class="pageInner"><img src="photo6.jpg" alt=""></div><span class="paperFold"></span></div>
-        <div class="memoryPage" data-page="6" style="z-index:6"><div class="pageInner"><img src="photo7.jpg" alt=""></div><span class="paperFold"></span></div>
-        <div class="memoryPage" data-page="7" style="z-index:5"><div class="pageInner"><img src="photo8.jpg" alt=""></div><span class="paperFold"></span></div>
-        <div class="memoryPage" data-page="8" style="z-index:4"><div class="pageInner"><img src="photo9.jpg" alt=""></div><span class="paperFold"></span></div>
-        <div class="memoryPage" data-page="9" style="z-index:3"><div class="pageInner"><img src="photo10.jpg" alt=""></div><span class="paperFold"></span></div>
-        <div class="memoryPage" data-page="10" style="z-index:2"><div class="pageInner"><img src="photo11.jpg" alt=""></div><span class="paperFold"></span></div>
-        <div class="memoryPage" data-page="11" style="z-index:1"><div class="pageInner"><img src="photo12.jpg" alt=""></div><span class="paperFold"></span></div>
+        <div class="memoryPage" data-page="0" style="z-index:12"><div class="pageInner"><img src="photo1.jpeg" alt=""></div><span class="paperFold"></span></div>
+        <div class="memoryPage" data-page="1" style="z-index:11"><div class="pageInner"><img src="photo2.jpeg" alt=""></div><span class="paperFold"></span></div>
+        <div class="memoryPage" data-page="2" style="z-index:10"><div class="pageInner"><img src="photo3.jpeg" alt=""></div><span class="paperFold"></span></div>
+        <div class="memoryPage" data-page="3" style="z-index:9"><div class="pageInner"><img src="photo4.jpeg" alt=""></div><span class="paperFold"></span></div>
+        <div class="memoryPage" data-page="4" style="z-index:8"><div class="pageInner"><img src="photo5.jpeg" alt=""></div><span class="paperFold"></span></div>
+        <div class="memoryPage" data-page="5" style="z-index:7"><div class="pageInner"><img src="photo6.jpeg" alt=""></div><span class="paperFold"></span></div>
+        <div class="memoryPage" data-page="6" style="z-index:6"><div class="pageInner"><img src="photo7.jpeg" alt=""></div><span class="paperFold"></span></div>
+        <div class="memoryPage" data-page="7" style="z-index:5"><div class="pageInner"><img src="photo8.jpeg" alt=""></div><span class="paperFold"></span></div>
+        <div class="memoryPage" data-page="8" style="z-index:4"><div class="pageInner"><img src="photo9.jpeg" alt=""></div><span class="paperFold"></span></div>
+        <div class="memoryPage" data-page="9" style="z-index:3"><div class="pageInner"><img src="photo10.jpeg" alt=""></div><span class="paperFold"></span></div>
+        <div class="memoryPage" data-page="10" style="z-index:2"><div class="pageInner"><img src="photo11.jpeg" alt=""></div><span class="paperFold"></span></div>
+        <div class="memoryPage" data-page="11" style="z-index:1"><div class="pageInner"><img src="photo12.jpeg" alt=""></div><span class="paperFold"></span></div>
     </div>
 
-    <button class="memoryContinue" id="memoryContinue" onclick="goTo('reflection')">Continue <span>→</span></button>
+    <button class="memoryContinue" id="memoryContinue" type="button" onclick="goTo('reflection')">Continue <span>→</span></button>
 
 </section>
 
@@ -3304,7 +3660,7 @@ button{
         <p>All those random days<br>became memories I actually care about.</p>
         <div class="divider"></div>
         <p class="after">And honestly... I'm glad they happened.</p>
-        <button class="tap" onclick="goTo('funny')">
+        <button class="tap actionButton" onclick="goTo('funny')">
             Okay, enough emotional talk <span>→</span>
         </button>
     </div>
@@ -3332,7 +3688,7 @@ button{
             So technically... you're supposed to be wiser now.<br><br>
             Please become wiser <i>at least for your age.</i> 😂
         </p>
-        <button class="tap" onclick="goTo('mystery')">
+        <button class="tap actionButton" onclick="goTo('mystery')">
             One last thing <span>→</span>
         </button>
     </div>
@@ -3348,6 +3704,7 @@ button{
     <div class="mysteryText">
         <div class="smallTop">wait...</div>
         <p>Did you really think that was everything? 👀</p>
+        <div class="mysteryHint">TAP THE BOX BELOW ✦</div>
     </div>
 
     <div class="boxStage" id="boxStage" onclick="openGift()">
@@ -3358,7 +3715,6 @@ button{
         <div class="boxWords">something is waiting</div>
     </div>
 
-    <button class="boxTap" onclick="openGift()">tap the box</button>
 </section>
 
 <!-- =====================================================
@@ -3371,10 +3727,11 @@ button{
     <div class="revealSticker revealS1">❤️</div><div class="revealSticker revealS2">✨</div><div class="revealSticker revealS3">🤭</div>
 
     <div class="content">
-        <div class="eyebrow">
-            How could I forget...?<br>
+        <div class="eyebrow">How could I forget...?</div>
+
+        <p class="revealMemoryLine">
             I remember all the nonsense you've blabbered in my ear all these years. 😂
-        </div>
+        </p>
 
         <h2 class="revealTitle">
             You kept saying<br>
@@ -3384,16 +3741,17 @@ button{
         <div class="divider"></div>
 
         <p class="revealText">
-            So...<br><br>
-            <b>go get that piercing. 😂</b>
+            So... <b>go get that piercing. 😂</b>
         </p>
 
-        <p class="revealGold">
-            <i>Wait...</i><br><br>
-            <b>Why are you still looking at the screen? 👀</b>
-        </p>
+        <div class="revealLookBlock">
+            <div class="revealWait">Wait...</div>
+            <div class="revealScreenPrompt">Why are you still looking at the screen? 👀</div>
+        </div>
 
-        <p class="signature"><b>Look at my hand. 🤭</b></p>
+        <div class="handRevealPrompt">
+            <span>LOOK AT MY HAND</span> 🤭
+        </div>
 
         <button class="startAgain" onclick="startAgain()">↻ Start Again</button>
     </div>
@@ -3416,6 +3774,8 @@ document.getElementById("musicButton");
 
 let musicStarted=false;
 let birthdayMusicStarted=false;
+let birthdayCutoffTimer=null;
+let birthdayCutoffWatch=null;
 let candleBlown=false;
 
 let memoryStarted=false;
@@ -3430,6 +3790,26 @@ let giftOpened=false;
 
 const birthdayMusic = document.getElementById("birthdayMusic");
 
+function finishBirthdaySong(){
+
+    if(birthdayCutoffTimer){
+        clearTimeout(birthdayCutoffTimer);
+        birthdayCutoffTimer=null;
+    }
+
+    if(birthdayCutoffWatch){
+        clearInterval(birthdayCutoffWatch);
+        birthdayCutoffWatch=null;
+    }
+
+    /* Hard stop: never allow the birthday audio past 45 seconds. */
+    birthdayMusic.pause();
+    try{ birthdayMusic.currentTime=Math.min(45, birthdayMusic.duration || 45); }catch(e){}
+    birthdayMusicStarted=false;
+
+    enableBlowButton();
+}
+
 async function startBirthdayMusic(){
 
     if(birthdayMusicStarted){
@@ -3437,24 +3817,30 @@ async function startBirthdayMusic(){
     }
 
     birthdayMusicStarted=true;
-
     birthdayMusic.volume=.45;
 
+    /* Start BOTH cutoff mechanisms before playback begins.
+       This makes the 45-second limit independent of when play() resolves. */
+    birthdayCutoffTimer=setTimeout(()=>{
+        finishBirthdaySong();
+    },45000);
+
+    birthdayCutoffWatch=setInterval(()=>{
+        if(birthdayMusic.currentTime >= 44.9){
+            finishBirthdaySong();
+        }
+    },100);
+
     try{
-
         await birthdayMusic.play();
-
-    }
-
-    catch(error){
-
-        /*
-           If the browser blocks audio,
-           the page still continues normally.
-        */
-
+    }catch(error){
+        /* Playback can be blocked by the browser; the user can retry via Tap to begin. */
+        if(birthdayCutoffTimer){ clearTimeout(birthdayCutoffTimer); birthdayCutoffTimer=null; }
+        if(birthdayCutoffWatch){ clearInterval(birthdayCutoffWatch); birthdayCutoffWatch=null; }
+        birthdayMusicStarted=false;
     }
 }
+
 
 
 /*
@@ -3462,16 +3848,35 @@ async function startBirthdayMusic(){
    automatically move to the candle page.
 */
 
+function enableBlowButton(){
+
+    const blowButton = document.getElementById("blowButton");
+
+    if(!blowButton){
+        return;
+    }
+
+    const candlePage = document.getElementById("birthday");
+
+    blowButton.disabled = false;
+    blowButton.style.opacity = "";
+    blowButton.style.pointerEvents = "";
+    blowButton.classList.add("ready");
+
+    if(candlePage){
+        candlePage.classList.remove("waitingForBirthdayMusic");
+    }
+}
+
 birthdayMusic.addEventListener(
     "ended",
     ()=>{
-
-        goTo("birthday");
-
+        /* If the actual file ends before 45 seconds, unlock immediately. */
+        finishBirthdaySong();
     }
 );
    
-   function beginBirthday(){
+function beginBirthday(){
 
     const birthdayStart = document.querySelector(".birthdayStart");
 
@@ -3481,6 +3886,32 @@ birthdayMusic.addEventListener(
         birthdayStart.style.pointerEvents = "none";
     }
 
+    const blowButton = document.getElementById("blowButton");
+
+    if(blowButton){
+        blowButton.disabled = true;
+        blowButton.style.opacity = "0.28";
+        blowButton.style.pointerEvents = "none";
+        blowButton.classList.remove("ready");
+    }
+
+    /* Show the candle immediately, but keep the instruction and
+       blow button hidden until the birthday song is finished. */
+    const candlePage = document.getElementById("birthday");
+    if(candlePage){
+        candlePage.classList.add("waitingForBirthdayMusic");
+    }
+
+    if(birthdayCutoffTimer){
+        clearTimeout(birthdayCutoffTimer);
+        birthdayCutoffTimer=null;
+    }
+    if(birthdayCutoffWatch){
+        clearInterval(birthdayCutoffWatch);
+        birthdayCutoffWatch=null;
+    }
+
+    birthdayMusic.currentTime=0;
     goTo("birthday");
     startBirthdayMusic();
 }
@@ -3500,14 +3931,28 @@ function goTo(id){
         .getElementById(id)
         .classList.add("active");
 
-    /*
-       Start the short Happy Birthday piano
-       when the user enters the opening.
-    */
+    /* Birthday music starts ONLY when the user taps “Tap to begin”.
+       The opening screen itself must stay silent. */
 
-    if(id==="opening"){
+    /* The memory music accompanies the experience only up to the
+       mystery/gift sequence. Stop it when the final reveal appears. */
+    if(id==="reveal"){
 
-        startBirthdayMusic();
+        if(birthdayCutoffTimer){
+            clearTimeout(birthdayCutoffTimer);
+            birthdayCutoffTimer=null;
+        }
+        if(birthdayCutoffWatch){
+            clearInterval(birthdayCutoffWatch);
+            birthdayCutoffWatch=null;
+        }
+        birthdayMusic.pause();
+
+        music.pause();
+        music.currentTime = 0;
+        musicStarted = false;
+        musicButton.classList.remove("playing");
+        musicButton.classList.remove("show");
 
     }
 
@@ -3586,7 +4031,7 @@ async function toggleMusic(){
 ========================================================= */
 
 const memoryData = Array.from({length:12}, (_,i) => ({
-    src: "photo" + (i + 1) + ".jpg"
+    src: "photo" + (i + 1) + ".jpeg"
 }));
 
 const memoryPages = Array.from(document.querySelectorAll(".memoryPage"));
@@ -3767,9 +4212,23 @@ function openGift(){
         birthdayStart.style.pointerEvents="";
     }
 
+    if(birthdayCutoffTimer){
+        clearTimeout(birthdayCutoffTimer);
+        birthdayCutoffTimer=null;
+    }
+    if(birthdayCutoffWatch){
+        clearInterval(birthdayCutoffWatch);
+        birthdayCutoffWatch=null;
+    }
+
     birthdayMusic.pause();
     birthdayMusic.currentTime=0;
     birthdayMusicStarted=false;
+
+    const candlePage = document.getElementById("birthday");
+    if(candlePage){
+        candlePage.classList.add("waitingForBirthdayMusic");
+    }
 
     music.pause();
     music.currentTime=0;
