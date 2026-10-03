@@ -3400,6 +3400,22 @@ button{
         bottom:5% !important;
     }
 }
+
+/* =========================================================
+   FINAL PHONE-FIRST MEMORY PHOTO ADJUSTMENT
+   ========================================================= */
+@media (max-width:600px){
+  .photoCollage{width:86vw;max-width:350px;height:48vh;max-height:430px;top:48%;}
+  .memoryCard{padding:10px 10px 38px;border-width:8px;}
+  .memoryCard::before{inset:4px;}
+  .memoryCard img{object-fit:contain;background:#e5cbb3;box-shadow:none;transform:scale(.96);}
+  .memoryCard.front img{animation:memoryPhoneZoom 4.8s cubic-bezier(.2,.7,.2,1) forwards;}
+  @keyframes memoryPhoneZoom{0%{transform:scale(.96) translate3d(0,0,0);}100%{transform:scale(1.015) translate3d(-.4%,-.3%,0);}}
+  .memoryCard.back1{transform:translate(-50%,-50%) rotate(-6deg) translate(-7px,5px) scale(.94);}
+  .memoryCard.back2{transform:translate(-50%,-50%) rotate(6deg) translate(8px,6px) scale(.92);}
+  .memoryCard.front{transform:translate(-50%,-50%) rotate(-1.5deg) scale(1);}
+  .memoryContinue{bottom:4.5%;padding:11px 24px;white-space:nowrap;}
+}
 </style>
 </head>
 
